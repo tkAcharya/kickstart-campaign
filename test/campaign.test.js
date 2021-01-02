@@ -1,4 +1,5 @@
 const assert = require('assert');
+const AssertionError = require('assert').AssertionError;
 const ganache = require('ganache-cli');
 const Web3 = require("web3");
 const web3 = new Web3(ganache.provider());
@@ -48,7 +49,6 @@ describe( "Campaign Tests" , () => {
 
   it("Verifying the approver", async() => {
 
-    const approverAddress = accounts[1];
     await campaign.methods.contribute().send({
       from: accounts[1],
       gas: '1000000',
@@ -59,5 +59,19 @@ describe( "Campaign Tests" , () => {
     assert(await campaign.methods.approvers(accounts[1]).call());
   });
 
-
+  it("verifying for the minimum contribution to be made ", async () => {
+    const flag = false;
+    try {
+      await campaign.methods.contribute().send({
+        from: accounts[1],
+        gas: '1000000',
+        value: '20'
+      });
+      assert(false);
+    } catch (e){
+      if (e instanceof AssertionError)
+        assert(false);
+      assert.ok(e);
+    }
+  });
 });
