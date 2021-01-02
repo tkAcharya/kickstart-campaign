@@ -43,9 +43,21 @@ describe( "Campaign Tests" , () => {
   });
 
   it("Verifying the manager",async () => {
-
     assert.equal(accounts[0],await campaign.methods.manager().call())
-
   });
+
+  it("Verifying the approver", async() => {
+
+    const approverAddress = accounts[1];
+    await campaign.methods.contribute().send({
+      from: accounts[1],
+      gas: '1000000',
+      value: '200'
+    });
+    //const isContributor = await campaign.methods.approvers(accounts[1]).call();
+    assert(!await campaign.methods.approvers(accounts[2]).call());
+    assert(await campaign.methods.approvers(accounts[1]).call());
+  });
+
 
 });
