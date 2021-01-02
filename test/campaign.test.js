@@ -74,4 +74,15 @@ describe( "Campaign Tests" , () => {
       assert.ok(e);
     }
   });
+
+  it("allows manager to create a payment request", async () => {
+    await campaign.methods.createRequest('Buy battery','100',accounts[1]).send({
+      from: accounts[0],
+      gas: '1000000'
+    });
+
+    const request = await campaign.methods.requests(0).call();
+    assert.ok('Buy battery', request.description);
+    // console.log(request);
+  });
 });
