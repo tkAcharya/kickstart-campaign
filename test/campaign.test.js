@@ -85,4 +85,47 @@ describe( "Campaign Tests" , () => {
     assert.ok('Buy battery', request.description);
     // console.log(request);
   });
+
+  it("end to end testing", async () => {
+
+    await campaign.methods.contribute().send({
+      from: accounts[1],
+      gas: '1000000',
+      value: web3.utils.toWei("10","ether")
+    });
+
+    await campaign.methods.contribute().send({
+      from: accounts[2],
+      gas: '1000000',
+      value: web3.utils.toWei("10","ether")
+    });
+
+    await campaign.methods
+    .createRequest('Buy battery',web3.utils.toWei("10","ether"),accounts[3])
+    .send({
+      from: accounts[0],
+      gas: '1000000'
+    });
+
+    const initialBalance = await web3.eth.getBalance(accounts[3]);
+
+    await campaign.methods.approveRequest(0).send({
+      from: accounts[1],
+      gas: '1000000'
+    });
+
+    await campaign.methods.finalizeRequest(0).send({
+      from: accounts[0],
+      gas: '1000000'
+    });
+
+    const finalBalance = await web3.eth.getBalance(accounts[3]);
+    const differenceBalance = finalBalance-initialBalance;
+    //console.log(differenceBalance);
+    assert(differenceBalance > web3.utils.toWei('5','ether'))
+  });
+
+
+
+
 });
