@@ -11,7 +11,7 @@ let factory;
 let campaignAddress;
 let campaign;
 
-beforeEach(async => () {
+beforeEach(async () => {
   accounts = await web3.eth.getAccounts();
 
   factory = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
@@ -27,8 +27,19 @@ beforeEach(async => () {
   [campaignAddress] = await factory.methods.getDeployedCampaign().call();
   // this automatically assigns 0th element to campaignAddress
 
-  campaign = await web3.eth.Contract(
-    Json.parse(compiledCampaign.interface),
+  campaign = await new web3.eth.Contract(
+    JSON.parse(compiledCampaign.interface),
     campaignAddress
   );
+});
+
+
+describe( "Campaign Tests" , () => {
+
+  it("Verifying the web3 ethereum", ()=>{
+    console.log(accounts);
+    assert.ok(factory.options.address);
+    assert.ok(campaign.options.address);
+  });
+
 });

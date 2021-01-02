@@ -4,7 +4,7 @@
   "description": "Backend of kickstart campaign using ethereum solidity",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Tarun Kumar Acharya",
   "license": "ISC",
