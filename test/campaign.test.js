@@ -42,4 +42,10 @@ describe( "Campaign Tests" , () => {
     assert.ok(campaign.options.address);
   });
 
+  it("Verifying the manager",async () => {
+
+    assert.equal(accounts[0],await campaign.methods.manager().call())
+
+  });
+
 });
