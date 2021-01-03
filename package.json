@@ -4,7 +4,8 @@
   "description": "Backend of kickstart campaign using ethereum solidity",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "next dev"
   },
   "author": "Tarun Kumar Acharya",
   "license": "ISC",
