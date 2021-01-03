@@ -1,5 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
+import factory from '../ethereum/factory'
 
-export default () => {
-  return <h1> This is the new Index page!!!</h1>;
-};
+
+class CampaignHomePage extends Component {
+
+  async componentDidMount() {
+    const campaigns = await factory.methods.getDeployedCampaign().call();
+    console.log(campaigns);
+  }
+
+  // constructor(props) {
+  //   super(props);
+  // }
+  render() {
+    return <h1>This is the index page</h1>;
+  }
+}
+
+export default CampaignHomePage;
