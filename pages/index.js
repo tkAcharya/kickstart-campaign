@@ -4,14 +4,14 @@ import factory from '../ethereum/factory'
 
 class CampaignHomePage extends Component {
 
-  async componentDidMount() {
+
+  static async getInitialProps() {
     const campaigns = await factory.methods.getDeployedCampaign().call();
-    console.log(campaigns);
+
+    return { campaigns: campaigns}; // return {campaigns}
   }
 
-  // constructor(props) {
-  //   super(props);
-  // }
+
   render() {
     return <h1>This is the index page</h1>;
   }
