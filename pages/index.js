@@ -11,9 +11,8 @@ class CampaignHomePage extends Component {
     return { campaigns: campaigns}; // return {campaigns}
   }
 
-
   render() {
-    return <h1>This is the index page</h1>;
+    return <h1>This is {this.props.campaigns[0]}</h1>;
   }
 }
 
