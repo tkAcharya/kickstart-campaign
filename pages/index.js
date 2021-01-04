@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Card , Button } from 'semantic-ui-react';
 
-import factory from '../ethereum/factory'
+import Layout from '../components/layout'
+import factory from '../ethereum/factory';
+
 
 
 class CampaignHomePage extends Component {
@@ -27,15 +29,19 @@ class CampaignHomePage extends Component {
 
 
   render() {
-    return <div>
-    <link
-  rel="stylesheet"
-  href="//cdn.jsdelivr.net/npm/semantic-ui@2.0.1/dist/semantic.min.css"
-/>
-    <h3>Open Campaigns</h3>
-    {this.renderCampaigns()}
-    <Button content='Create Campaign' icon='add square' primary />
-    </div>;
+    return (
+    <Layout>
+    <div>
+      <link
+    rel="stylesheet"
+    href="//cdn.jsdelivr.net/npm/semantic-ui@2.0.1/dist/semantic.min.css"
+  />
+      <h3>Open Campaigns</h3>
+      {this.renderCampaigns()}
+      <Button content='Create Campaign' icon='add square' primary />
+    </div>
+    </Layout>
+  );
   }
 }
 
