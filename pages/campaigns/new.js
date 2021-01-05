@@ -42,8 +42,9 @@ class CampaignNew extends Component {
                     this.setState({minimumContribution: event.target.value})}
               />
           </Form.Field>
+          <Button primary style = {{marginTop: '10px'}}>Create!</Button>
         </Form>
-         <Button primary style = {{marginTop: '10px'}}>Create!</Button>
+
       </Layout>
     ) ;
   }
