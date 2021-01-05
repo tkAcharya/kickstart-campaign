@@ -1,12 +1,13 @@
 import React from 'react';
+import HeaderBar from './header_bar';
+import {Container} from 'semantic-ui-react';
 
 function CommonLayout(props){
   return (
-    <div>
-      <h1 />I am a header
+    <Container>
+      <HeaderBar />
       {props.children}
-      <h2 />I am a footer
-    </div>
+    </Container>
   );
 }
 
