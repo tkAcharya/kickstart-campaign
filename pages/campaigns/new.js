@@ -10,12 +10,14 @@ class CampaignNew extends Component {
 
   state = {
     minimumContribution: '',
-    errorMessage:''
+    errorMessage:'',
+    loadingFlag: false
   };
 
   onSubmit = async (event) => {
     //console.log("Method called");
     event.preventDefault();
+    this.setState({loadingFlag:true, errorMessage:''});
 
     try {
         const accounts = await web3.eth.getAccounts();
@@ -28,6 +30,7 @@ class CampaignNew extends Component {
         this.setState({errorMessage: err.message});
     }
 
+    this.setState({loadingFlag:false});
   };
 
   render() {
@@ -35,7 +38,7 @@ class CampaignNew extends Component {
       <Layout>
         <h3>Create a Campaign</h3>
 
-        <Form onSubmit={this.onSubmit} error={this.state.errorMessage}>
+        <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
               <label>Minimum Contribution</label>
               <Input
@@ -48,7 +51,7 @@ class CampaignNew extends Component {
           </Form.Field>
 
           <Message error header = "Oops!" content = { this.state.errorMessage} />
-          <Button primary style = {{marginTop: '10px'}}>Create!</Button>
+          <Button loading={this.state.loadingFlag} primary style = {{marginTop: '10px'}}>Create!</Button>
         </Form>
 
       </Layout>
