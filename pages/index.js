@@ -3,7 +3,7 @@ import {Card , Button } from 'semantic-ui-react';
 
 import Layout from '../components/layout'
 import factory from '../ethereum/factory';
-
+import {Link} from '../routes';
 
 
 class CampaignHomePage extends Component {
@@ -33,7 +33,11 @@ class CampaignHomePage extends Component {
     <Layout>
     <div>
       <h3>Open Campaigns</h3>
-      <Button floated="right" content='Create Campaign' icon='add square' primary />
+      <Link route="/campaigns/new">
+        <a>
+        <Button floated="right" content='Create Campaign' icon='add square' primary />
+        </a>
+      </Link>
       {this.renderCampaigns()}
     </div>
     </Layout>

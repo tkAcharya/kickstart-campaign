@@ -5,7 +5,7 @@ import {Link} from '../routes';
 function HeaderBar () {
   return (
     <Menu style = {{marginTop: '10px'}}>
-      <Link route="/" >
+      <Link to="/" >
         <a className="item">CrowdCoin</a>
       </Link>
 
