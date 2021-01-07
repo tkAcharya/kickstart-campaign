@@ -93,7 +93,7 @@ contract Campaign {
 
     }
 
-    function getSummary(uint campaignNumber) public view returns (
+    function getSummary() public view returns (
       uint , uint , uint , uint , address
       ) {
 
