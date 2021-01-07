@@ -32,7 +32,7 @@ const ethEnabled = () => {
        return false;
    } else {
        const provider = new Web3.providers.HttpProvider(
-           'https://rinkeby.infura.io/v3/af195d9e463741d8b84cf841d12b0b8c'
+           'https://rinkeby.infura.io/v3/30a4bebab20e465d8a0d5454cc53e450'
            );
        web3 = new Web3(provider);
    }

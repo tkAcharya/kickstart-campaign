@@ -19,7 +19,11 @@ class CampaignHomePage extends Component {
     const items = this.props.campaigns.map( address => {
       return {
         header: address,
-        description: <a>View Campaign</a>,
+        description: (
+          <Link route={`/campaigns/${address}`}>
+            <a>View Campaign</a>
+          </Link>
+        ),
         fluid: true
       };
     });
@@ -35,7 +39,7 @@ class CampaignHomePage extends Component {
       <h3>Open Campaigns</h3>
       <Link route="/campaigns/new">
         <a>
-        <Button floated="right" content='Create Campaign' icon='add square' primary />
+          <Button floated="right" content='Create Campaign' icon='add square' primary />
         </a>
       </Link>
       {this.renderCampaigns()}
