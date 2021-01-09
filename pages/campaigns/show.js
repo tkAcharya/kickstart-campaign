@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid , Button } from 'semantic-ui-react'
 import Layout from '../../components/layout';
 import ContributeForm from '../../components/contributeForm';
 import getCampaign from '../../ethereum/campaign';
+import {Link } from '../../routes';
 
 
 class CampaignShow extends Component {
@@ -69,9 +70,6 @@ class CampaignShow extends Component {
     return items;
   }
 
-
-
-
   render(){
     return (
       <Layout>
@@ -80,6 +78,10 @@ class CampaignShow extends Component {
           <Grid>
             <Grid.Column width={10}>
               <Card.Group items={this.renderCards()} />
+              <Link route={`/campaigns/${this.props.address}/requests`}>
+                <Button content="View Requests" primary style = {{marginTop: '10px'}}/>
+              </Link>
+
             </Grid.Column>
             <Grid.Column width={6}>
               <ContributeForm address={this.props.address} />
