@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 import Layout from '../../components/layout';
 import ContributeForm from '../../components/contributeForm';
 import getCampaign from '../../ethereum/campaign';
@@ -14,6 +14,7 @@ class CampaignShow extends Component {
     const campaignSummary = await campaign.methods.getSummary().call();
     console.log(campaignSummary);
     return {
+      address: props.query.address,
       balance: campaignSummary[0],
       minimumContribution: campaignSummary[1],
       requestCount: campaignSummary[2],
@@ -38,7 +39,6 @@ class CampaignShow extends Component {
           'Manager can create campaign and can create requests to spend amount.',
         meta: 'Address Of Manager',
         style: { overflowWrap: 'break-word'},
-        fluid: true,
       },
       {
         header: balance,
@@ -75,11 +75,16 @@ class CampaignShow extends Component {
   render(){
     return (
       <Layout>
-        <div>
+
           <h3> Campaign Details </h3>
-          <Card.Group items={this.renderCards()} />
-        </div>
-        <ContributeForm />
+          <Grid>
+            <Grid.Column width={10}>
+              <Card.Group items={this.renderCards()} />
+            </Grid.Column>
+            <Grid.Column width={6}>
+              <ContributeForm address={this.props.address} />
+            </Grid.Column>
+          </Grid>
       </Layout>
     )
   }
