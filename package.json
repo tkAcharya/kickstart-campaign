@@ -4,7 +4,9 @@
   "description": "Backend of kickstart campaign using ethereum solidity",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "next dev",
+    "dev-custom": "node server.js"
   },
   "author": "Tarun Kumar Acharya",
   "license": "ISC",
@@ -13,6 +15,12 @@
     "fs-extra": "^4.0.3",
     "ganache-cli": "^6.12.1",
     "mocha": "^8.2.1",
+    "next": "^4.1.4",
+    "next-routes": "^1.4.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.1",
     "solc": "^0.4.17",
     "truffle-hdwallet-provider": "^0.0.3",
     "updates": "^11.4.2",
