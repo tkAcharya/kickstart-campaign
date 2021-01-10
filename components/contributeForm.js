@@ -7,14 +7,6 @@ import {Router} from '../routes';
 
 class ContributeForm extends Component {
 
-  // static async getInitialProps(props) {
-  //   //console.log(props.query.address);
-  //   const campaign = getCampaign(props.query.address);
-  //   //console.log(campaign);
-  //
-  //   return {campaign: campaign};
-  //
-  // }
 
   state = {
     contribution: '',
