@@ -4,6 +4,8 @@
 ## Description 
 I have tried to build the code of [KICKSTARTER](https://www.kickstarter.com/) , this is a website where people post their ideas and get investments around it promising to give the product to the investors. This can be secured more by use of blockchain ethereum , to track whether the money is being sent to vendors or being used in personal expenses. This code focuses on providing a basic approach of how we can track , approve expenses for the desired campaign.
 
+This Project also includes a Frontend Web Designing in it created with the help of React , Next JS and deployed on 3000 port.
+
 
 ### 1. Clone the project 
 
@@ -43,7 +45,7 @@ $ npm install -- save dotenv
 ```
  - Write the passphrase of metamask in the mnemonic field in .env file present in ethereum folder
  - Write the rinkeby test network link in the link field in .env file present in ethereum folder
- - Run ```node deploy.js```
+ - Run ```node deploy.js``` [OR] Run ```sh runAndDeployContract.sh```
  
  ### 5. Verify the deployed Contract to Rinkeby Test Network
  
@@ -52,6 +54,29 @@ $ npm install -- save dotenv
  Copy the xyz and paste it in [rinkebyNetwork](https://rinkeby.etherscan.io/)
  
  You will be able to view your contract info in the dashboard.
+ 
+ ### 6. Run the Frontend Part of it 
+ After running the deploy file , you would have got a message like "Contract Deployed to <XYZ>"
+ 
+ Update the XYZ on factory.js 
+ 
+ Update the infura address on web3.js
+ 
+ Run ```npm run dev-custom```
+ 
+ This will run the next JS with the router in it , which takes care of dynamic routing
+ 
+ ## HIT http://localhost:3000/ to get the home page 
+ 
+ ### API LIST
+ 
+ | API   | Routed To 
+| ------------- | -------------
+| /  | pages/index.js  |
+| /campaigns/new  | pages/campaigns/new,js  |
+| /campaigns/{Address}   | pages/campaigns/index.js | 
+| /campaigns/{Address}/requests   | pages/campaigns/requests/index.js | 
+| /campaigns/{Address}/requests/new   | pages/campaigns/requests/new | 
 
 ## Features
 
