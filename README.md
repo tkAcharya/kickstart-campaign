@@ -80,10 +80,10 @@ $ npm install -- save dotenv
 
 ## Features
 
-- [x] Offline support
+- [ ] Offline support
 - [x] Cross-platform
 - [x] Awesome sounds
-- [x] No singup/login required
+- [ ] No singup/login required
 - [ ] Auto launch
 - [ ] Auto updates
 
